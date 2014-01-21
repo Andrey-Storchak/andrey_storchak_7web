@@ -58,10 +58,9 @@ TEMPLATE_DIRS = (
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = ''
+STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
-   'static/',
 )
 
 STATICFILES_FINDERS = (
