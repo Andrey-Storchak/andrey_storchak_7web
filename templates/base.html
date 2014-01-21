@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% if title %}
+                {{ title }}
+            {% else %}
+                7webpages testing assigngment
+            {% endif %}
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.min.css' %}">
+        <script type="text/javascript" href="{% static 'js/bootstrap.min.js' %}"></script>
+            {% block head %}{% endblock %}
+    </head>
+    <body>
+    {% block content %}{% endblock %}
+    </body>
+</html>

@@ -1,218 +1,36 @@
 [
 {
     "pk": 1,
-    "model": "contenttypes.contenttype",
+    "model": "pynote.note",
     "fields": {
-        "model": "logentry",
-        "name": "log entry",
-        "app_label": "admin"
+        "text": "Beautiful is better than ugly.\r\nExplicit is better than implicit.\r\nSimple is better than complex.\r\nComplex is better than complicated.\r\nFlat is better than nested.\r\nSparse is better than dense.\r\nReadability counts.\r\nSpecial cases aren't special enough to break the rules.\r\nAlthough practicality beats purity.\r\nErrors should never pass silently.\r\nUnless explicitly silenced.\r\nIn the face of ambiguity, refuse the temptation to guess.\r\nThere should be one-- and preferably only one --obvious way to do it.\r\nAlthough that way may not be obvious at first unless you're Dutch.\r\nNow is better than never.\r\nAlthough never is often better than *right* now.\r\nIf the implementation is hard to explain, it's a bad idea.\r\nIf the implementation is easy to explain, it may be a good idea.\r\nNamespaces are one honking great idea -- let's do more of those!",
+        "title": "Zen of python"
     }
 },
 {
     "pk": 2,
-    "model": "contenttypes.contenttype",
+    "model": "pynote.note",
     "fields": {
-        "model": "permission",
-        "name": "permission",
-        "app_label": "auth"
-    }
-},
-{
-    "pk": 3,
-    "model": "contenttypes.contenttype",
-    "fields": {
-        "model": "group",
-        "name": "group",
-        "app_label": "auth"
-    }
-},
-{
-    "pk": 4,
-    "model": "contenttypes.contenttype",
-    "fields": {
-        "model": "user",
-        "name": "user",
-        "app_label": "auth"
-    }
-},
-{
-    "pk": 5,
-    "model": "contenttypes.contenttype",
-    "fields": {
-        "model": "contenttype",
-        "name": "content type",
-        "app_label": "contenttypes"
-    }
-},
-{
-    "pk": 6,
-    "model": "contenttypes.contenttype",
-    "fields": {
-        "model": "session",
-        "name": "session",
-        "app_label": "sessions"
+        "text": "I store all of my notes on Dropbox. Doing so means I can get access to them from any computer or iOS device, and via the Web;",
+        "title": "Tools to use!"
     }
 },
 {
     "pk": 1,
-    "model": "auth.permission",
+    "model": "auth.user",
     "fields": {
-        "codename": "add_logentry",
-        "name": "Can add log entry",
-        "content_type": 1
-    }
-},
-{
-    "pk": 2,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "change_logentry",
-        "name": "Can change log entry",
-        "content_type": 1
-    }
-},
-{
-    "pk": 3,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "delete_logentry",
-        "name": "Can delete log entry",
-        "content_type": 1
-    }
-},
-{
-    "pk": 4,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "add_permission",
-        "name": "Can add permission",
-        "content_type": 2
-    }
-},
-{
-    "pk": 5,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "change_permission",
-        "name": "Can change permission",
-        "content_type": 2
-    }
-},
-{
-    "pk": 6,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "delete_permission",
-        "name": "Can delete permission",
-        "content_type": 2
-    }
-},
-{
-    "pk": 7,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "add_group",
-        "name": "Can add group",
-        "content_type": 3
-    }
-},
-{
-    "pk": 8,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "change_group",
-        "name": "Can change group",
-        "content_type": 3
-    }
-},
-{
-    "pk": 9,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "delete_group",
-        "name": "Can delete group",
-        "content_type": 3
-    }
-},
-{
-    "pk": 10,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "add_user",
-        "name": "Can add user",
-        "content_type": 4
-    }
-},
-{
-    "pk": 11,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "change_user",
-        "name": "Can change user",
-        "content_type": 4
-    }
-},
-{
-    "pk": 12,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "delete_user",
-        "name": "Can delete user",
-        "content_type": 4
-    }
-},
-{
-    "pk": 13,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "add_contenttype",
-        "name": "Can add content type",
-        "content_type": 5
-    }
-},
-{
-    "pk": 14,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "change_contenttype",
-        "name": "Can change content type",
-        "content_type": 5
-    }
-},
-{
-    "pk": 15,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "delete_contenttype",
-        "name": "Can delete content type",
-        "content_type": 5
-    }
-},
-{
-    "pk": 16,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "add_session",
-        "name": "Can add session",
-        "content_type": 6
-    }
-},
-{
-    "pk": 17,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "change_session",
-        "name": "Can change session",
-        "content_type": 6
-    }
-},
-{
-    "pk": 18,
-    "model": "auth.permission",
-    "fields": {
-        "codename": "delete_session",
-        "name": "Can delete session",
-        "content_type": 6
+        "username": "root",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2014-01-21T08:43:11.540Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$12000$P6u83jJJctOB$uTbf/y9+mjHS6ca3IKNgqD2Tu4dI7bMUr1zOKNd57lw=",
+        "email": "toor@password.com",
+        "date_joined": "2014-01-21T08:43:00.266Z"
     }
 }
 ]
