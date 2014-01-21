@@ -18,12 +18,12 @@ class TestHomeView(TestCase):
 
 class TestInclusionTag(TestCase):
     def setUp(self):
-        self.note = models.Note.objects.create(title='Testing note', text='Testint text!')
-        self.template = Template('''
+        self.note = models.Note.objects.create(title='Testing note', text='Testing text!')
+        self.rendered_template = Template('''
             {% load get_note %}
-             {% get_note_by_id {note_id} %}
-            '''.format(note_id=self.note.pk))
+            {% note_by_id 1 %}
+            ''').render(Context())
 
     def test_tag(self):
-        self.assertIn(self.note.title, self.template.render(Context()))
-        self.assertIn(self.note.text, self.template.render(Context()))
+        self.assertIn(self.note.title, self.rendered_template)
+        self.assertIn(self.note.text, self.rendered_template)
