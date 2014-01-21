@@ -10,5 +10,12 @@ MANAGE=$(BASE)/manage.py
 init:
 	pip install -r requirements.txt
 	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) syncdb --noinput
-	$(MANAGE) loaddata db_data.json
+	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) loaddata db_data.json
+manage:
+	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) $(COMMAND)
 
+run:
+	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) runserver
+
+test:
+	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) test $(APP)
