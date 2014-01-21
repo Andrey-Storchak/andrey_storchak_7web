@@ -1,1 +1,1 @@
-web: make runheroku
+web: make runheroku $PORT
