@@ -1,14 +1,16 @@
 from settings import *
 
 import dj_database_url
+
 DATABASES= {'default': dj_database_url.config()}
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-DEBUG=False
+DEBUG=True
 ALLOWED_HOSTS = ['*']
 
 import os
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
