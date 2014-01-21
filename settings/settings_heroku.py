@@ -1,20 +1,63 @@
-from settings import *
+import os
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+SECRET_KEY = 'xjf^@5ha&mi1%e2bojksl+_8057rbh(b0mio7fc&ypz=5@p#q_'
+
+DEBUG = False
+
+TEMPLATE_DEBUG = False
+
+ALLOWED_HOSTS = ['*']
+
+
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'apps.pynote',
+)
+
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+ROOT_URLCONF = 'andrey_storchak_test_7web.urls'
+
+WSGI_APPLICATION = 'andrey_storchak_test_7web.wsgi.application'
+
 
 import dj_database_url
 
-DATABASES= {'default': dj_database_url.config()}
+DATABASES = {'default': dj_database_url.config()}
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+LANGUAGE_CODE = 'en-us'
 
-DEBUG=True
-ALLOWED_HOSTS = ['*']
+TIME_ZONE = 'UTC'
 
-import os
+USE_I18N = True
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'static'
+USE_L10N = True
+
+USE_TZ = True
+
+TEMPLATE_DIRS = (
+     'templates/',
+     'templates/pynote/templates/'
+)
+
+
 STATIC_URL = '/static/'
-
+STATIC_ROOT = 'static'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 )
