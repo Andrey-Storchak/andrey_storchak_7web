@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import settings
 
 import apps.pynote.urls
 
@@ -13,3 +14,8 @@ urlpatterns = patterns('',
     url(r'^$', include(apps.pynote.urls)),
 
 )
+
+if not settings.DEBUG:
+    urlpatterns += patterns(”,
+            (r’^static/(?P.*)$’, ‘django.views.static.serve’, {‘document_root’: settings.STATIC_ROOT}),)
+
