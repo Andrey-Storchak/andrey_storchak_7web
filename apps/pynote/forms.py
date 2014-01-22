@@ -1,5 +1,4 @@
 from django import forms
-
 from . import models
 
 
@@ -7,8 +6,12 @@ class NoteForm(forms.ModelForm):
     class Meta:
         model = models.Note
         widgets = {
-            'title': forms.CharField(required=True),
-            'text': forms.widgets.TextArea(required=True)
+            'title': forms.TextInput(attrs={
+                'class': 'form-control'
+                }),
+            'text': forms.TextInput(attrs={
+                'class': 'form-control'
+                })
         }
 
     def is_valid(self):
