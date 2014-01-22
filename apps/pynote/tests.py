@@ -7,6 +7,8 @@ from . import models
 
 
 class TestHomeView(TestCase):
+    fixtures = ['db_data.json']
+
     def setUp(self):
         self.notes = models.Note.objects.all()
 
@@ -16,9 +18,12 @@ class TestHomeView(TestCase):
             self.assertIn(note.title, home_page.content)
             self.assertIn(note.text, home_page.content)
 
+
 class TestInclusionTag(TestCase):
+
     def setUp(self):
-        self.note = models.Note.objects.create(title='Testing note', text='Testing text!')
+        self.note = models.Note.objects.create(title='Testing note',
+                                               text='Testing text!')
         self.rendered_template = Template('''
             {% load get_note %}
             {% note_by_id 1 %}
