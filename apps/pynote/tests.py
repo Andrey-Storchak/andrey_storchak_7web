@@ -32,3 +32,28 @@ class TestInclusionTag(TestCase):
     def test_tag(self):
         self.assertIn(self.note.title, self.rendered_template)
         self.assertIn(self.note.text, self.rendered_template)
+
+
+class TestAdditionForm(TestCase):
+
+    def setUp(self):
+        self.v_note_creds = {'title': 'Test note',
+                             'text': 'Test text! more than 10 chars'}
+        self.i_note_creds = {'title': 'Nt',
+                             'text': 'small'}
+
+    def test_valid_add(self):
+        response = self.client.post(reverse('add_note'),
+                                    self.v_note_creds)
+        self.assertEqual(response.status_code, 200)
+
+        created_note = models.Note.objects.get(pk=1)
+        self.assertEqual(created_note.tirle, self.note_creds['title'])
+        self.assertEqual(created_note.text, self.note_creds['text'])
+
+    def test_invalid_add(self):
+        response = self.client.post(reverse('add_note'),
+                                    self.i_note_creds)
+        self.assertEqual(response.status_code, 200)
+        with self.assertRaises(models.Note.DoesNotExist):
+            models.Note.objects.get(pk=1)
