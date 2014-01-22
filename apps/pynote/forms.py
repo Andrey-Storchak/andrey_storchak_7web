@@ -17,4 +17,5 @@ class NoteForm(forms.ModelForm):
             self_result = len(self.cleaned_data['text']) > 8
             return parent_result == self_result
         else:
+            self.erros['text'] = "Text must be more the 8 symbols."
             return parent_result
