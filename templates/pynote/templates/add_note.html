@@ -8,9 +8,7 @@
         <div class="form-group {% if form.title.errors %} has-error {% endif %}">
 
             {{ form.title.label_tag}}
-            {% for error in form.title.errors %}
-                <br>{{ error }}
-            {% endfor %}
+            <br>{{ form.title.errors }}
             {{ form.title }}
         </div>
 
