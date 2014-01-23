@@ -10,9 +10,10 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'andrey_storchak_test_7web.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include(apps.pynote.urls)),
-
+    url(r'^index$', include(apps.pynote.urls)),
+    url(r'^notes', include(apps.pynote.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 )
 
 if not settings.DEBUG:

@@ -7,18 +7,20 @@ class NoteForm(forms.ModelForm):
         model = models.Note
         widgets = {
             'title': forms.TextInput(attrs={
-                'class': 'form-control'
+                'class': 'form-control',
+                'placeholder': 'Note title'
                 }),
-            'text': forms.TextInput(attrs={
-                'class': 'form-control'
+            'text': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Note text'
                 })
         }
 
     def is_valid(self):
-        parent_result = super(NoteForm, self).is_valid(self)
-        if parent_result:
-            self_result = len(self.cleaned_data['text']) > 8
-            return parent_result == self_result
+        parent_result = super(NoteForm, self).is_valid()
+        self_result = len(self.cleaned_data['text']) > 8
+        if parent_result == self_result:
+            return True
         else:
-            self.erros['text'] = "Text must be more the 8 symbols."
-            return parent_result
+            self.errors['text'] = "Text must be more then 8 symbols."
+            return False

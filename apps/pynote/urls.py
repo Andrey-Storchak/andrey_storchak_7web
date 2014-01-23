@@ -1,17 +1,12 @@
 from django.conf.urls import patterns, include, url
-from django.contrib import admin
 from django.conf import settings
 
 
 import views
 
-admin.autodiscover()
+
 
 urlpatterns = patterns('',
     url(r'^$', views.HomeView.as_view(), name='home'),
+    url(r'^/add$', views.AddNoteView.as_view(), name='add_note'),
 )
-
-if settings.DEBUG:
-    urlpatterns += patterns('django.contrib.staticfiles.views',
-        url(r'^static/(?P<path>.*)$', 'serve'),
-    )

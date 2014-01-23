@@ -45,11 +45,11 @@ class TestAdditionForm(TestCase):
     def test_valid_add(self):
         response = self.client.post(reverse('add_note'),
                                     self.v_note_creds)
-        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, reverse('home'), 302, 200)
 
         created_note = models.Note.objects.get(pk=1)
-        self.assertEqual(created_note.tirle, self.note_creds['title'])
-        self.assertEqual(created_note.text, self.note_creds['text'])
+        self.assertEqual(created_note.title, self.v_note_creds['title'])
+        self.assertEqual(created_note.text, self.v_note_creds['text'])
 
     def test_invalid_add(self):
         response = self.client.post(reverse('add_note'),
