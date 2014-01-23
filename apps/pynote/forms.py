@@ -18,9 +18,11 @@ class NoteForm(forms.ModelForm):
 
     def is_valid(self):
         parent_result = super(NoteForm, self).is_valid()
-        self_result = len(self.cleaned_data['text']) > 8
-        if parent_result == self_result:
-            return True
-        else:
-            self.errors['text'] = "Text must be more then 8 symbols."
-            return False
+        if parent_result:
+            self_result = len(self.cleaned_data['text']) > 8
+            if parent_result == self_result:
+                return True
+            else:
+                self.errors['text'] = "Text must be more then 8 symbols."
+                return False
+        return False
