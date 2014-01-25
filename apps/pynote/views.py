@@ -8,7 +8,7 @@ from . import forms
 
 class HomeView(TemplateView):
 
-    template_name= 'pynote/templates/index.html'
+    template_name = 'pynote/templates/index.html'
 
     def get_context_data(self, **kwargs):
         '''Add notes list to context'''
@@ -26,5 +26,3 @@ class AddNoteView(FormView):
     def form_valid(self, form):
         form.save()
         return redirect(reverse_lazy('home'))
-
-
