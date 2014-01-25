@@ -5,7 +5,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SECRET_KEY = 'xjf^@5ha&mi1%e2bojksl+_8057rbh(b0mio7fc&ypz=5@p#q_'
 
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = False
 
@@ -61,6 +61,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
+    'admin/'
 )
 
 STATICFILES_FINDERS = (
