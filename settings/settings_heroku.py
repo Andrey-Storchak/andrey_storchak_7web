@@ -57,7 +57,7 @@ TEMPLATE_DIRS = (
 
 
 STATIC_URL = '/static/'
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
