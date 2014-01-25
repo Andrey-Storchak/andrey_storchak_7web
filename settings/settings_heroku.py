@@ -11,5 +11,6 @@ DATABASES = {'default': dj_database_url.config()}
 ALLOWED_HOSTS = ['*']
 
 STATICFILES_DIRS = (
-   os.path.join(BASE_DIR,'admin'),
+    os.path.join(BASE_DIR,'admin'),
+    os.path.join(BASE_DIR,'static'),
 )
