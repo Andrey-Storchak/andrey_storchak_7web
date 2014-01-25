@@ -53,8 +53,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = (
-   'static/',
-   'admin/',
+   os.path.join(BASE_DIR, 'admin/'),
 )
 
 STATICFILES_FINDERS = (
