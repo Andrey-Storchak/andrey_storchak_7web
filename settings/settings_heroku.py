@@ -5,7 +5,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SECRET_KEY = 'xjf^@5ha&mi1%e2bojksl+_8057rbh(b0mio7fc&ypz=5@p#q_'
 
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
@@ -61,11 +61,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
-    os.path.join(STATIC_ROOT, 'admin'),
-    os.path.join(STATIC_ROOT, 'admin/css'),
-    os.path.join(STATIC_ROOT, 'admin/js'),
-    os.path.join(STATIC_ROOT, 'admin/img'),
-
 )
 
 STATICFILES_FINDERS = (

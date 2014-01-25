@@ -7,9 +7,6 @@ import apps.pynote.urls
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'andrey_storchak_test_7web.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
     url(r'^$', include(apps.pynote.urls)),
     url(r'^index$', include(apps.pynote.urls)),
     url(r'^notes', include(apps.pynote.urls)),
@@ -19,4 +16,4 @@ urlpatterns = patterns('',
 if not settings.DEBUG:
     urlpatterns += patterns('',
         (r'^static/(.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-        )
+    )
