@@ -9,7 +9,7 @@ SECRET_KEY = '%c)gusv_m8n7xo0#((hr@8v^34&&lh$62@g%e1dm54x5pba6tq'
 
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['*']
 
