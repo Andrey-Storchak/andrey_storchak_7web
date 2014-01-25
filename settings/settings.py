@@ -51,10 +51,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = ''
+STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
    'static/',
+   'admin/',
 )
 
 STATICFILES_FINDERS = (
