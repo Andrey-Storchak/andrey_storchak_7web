@@ -8,6 +8,3 @@ DEBUG = False
 DATABASES = {'default': dj_database_url.config()}
 
 STATIC_ROOT = 'static/'
-STATICFILES_DIRS = (
-    'admin/',
-    )
