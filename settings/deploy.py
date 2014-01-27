@@ -9,5 +9,5 @@ DATABASES = {'default': dj_database_url.config()}
 
 STATIC_ROOT = 'static/'
 STATICFILES_DIRS = (
-    'admin/',
+    os.path.join(STATIC_ROOT,'admin/'),
     )
