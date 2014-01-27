@@ -66,6 +66,6 @@ class TestContext(TestCase):
 
     def test_notes_count(self):
         count = models.Note.objects.count()
-        response = sel.client.get(reverse('home'))
+        response = self.client.get(reverse('home'))
         self.assertEqual(count, response.context['notes_count'])
 
