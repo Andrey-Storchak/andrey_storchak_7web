@@ -9,6 +9,5 @@ DATABASES = {'default': dj_database_url.config()}
 
 STATIC_ROOT = ''
 STATICFILES_DIRS = (
-    'admin/',
     'static/',
     )
