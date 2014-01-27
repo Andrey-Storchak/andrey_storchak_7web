@@ -59,3 +59,13 @@ class TestAdditionForm(TestCase):
         self.assertEqual(response.status_code, 200)
         with self.assertRaises(models.Note.DoesNotExist):
             models.Note.objects.get(pk=1)
+
+
+class TestContext(TestCase):
+    fixtures = ['db_data.json']
+
+    def test_notes_count(self):
+        count = models.Note.objects.count()
+        response = sel.client.get(reverse('home'))
+        self.assertEqual(count, response.context['notes_count'])
+
