@@ -12,21 +12,12 @@ class NoteForm(forms.ModelForm):
                                        'class': 'form-control',
                                        'placeholder': 'Note title'}))
 
+    text = forms.CharField(min_length=8,
+                widget=forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Note text'}
+                    )
+            )
+
     class Meta:
         model = models.Note
-        widgets = {
-            'text': forms.Textarea(attrs={
-                'class': 'form-control',
-                'placeholder': 'Note text'})}
-
-    def is_valid(self):
-        parent_result = super(NoteForm, self).is_valid()
-        if parent_result:
-            self_result = len(self.cleaned_data['text']) > 8
-            if parent_result == self_result:
-                return True
-            else:
-                text_errors = self._errors.setdefault('text', ErrorList())
-                text_errors.append(u"Text must be more then 8 symbols.")
-                return False
-        return False
