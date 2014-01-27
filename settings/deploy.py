@@ -1,4 +1,4 @@
-from .settings import *
+from settings.common import *
 import dj_database_url
 
 DEBUG = False
