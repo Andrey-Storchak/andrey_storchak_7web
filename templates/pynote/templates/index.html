@@ -7,7 +7,9 @@
                 <div class="jumbotron">
                     <h1>{{ note.title }}</h1>
                     <p class="lead">{{ note.text }}</p>
-                    <img src="{{ MEDIA_URL }}{{ note.attach }}">
+                    {% if note.attach %}
+                        <img src="{{ MEDIA_URL }}{{ note.attach }}" class="img-rounded">
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>

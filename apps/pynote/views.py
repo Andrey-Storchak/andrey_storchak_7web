@@ -32,6 +32,7 @@ class AddNoteView(FormView):
         form.save()
         context = {'request_result': 'success',
                    'message': 'Note added successfuly.'}
+        print(form.cleaned_data['attach'])
         return render_to_json_response(context)
 
     def form_invalid(self, form):

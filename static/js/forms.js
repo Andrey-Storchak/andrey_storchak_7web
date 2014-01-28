@@ -38,34 +38,43 @@ $(document).ready(function() {
         };
 
     function showProgress(){
-        $('.progress').css({
-            'display': 'true'
-        });
+        $('.progress').slideDown('slow')
     };
 
-    function hideProgress(){
-        $('.progress').css({
-            'display': 'none'
-      });
+    function afterSubmit(responseText, statusText, xhr, $form){
+        $('.progress').slideUp('slow')
+
+        showResult(responseText);
     };
 
 
-    $("#add-note").on('submit', function(event) {
+    $("#add-note").ajaxForm({
+        beforeSubmit: showProgress,
+        success: afterSubmit,
+        fail: afterSubmit,
+        url: '',
+        dataType: 'json'
+    });
+
+    /*$("#add-note").on('submit', function(event) {
         //Ajax form sending
         event.preventDefault();
         var $progress_bar = $('.progress');
         var url = $(this).attr('action');
         var method = $(this).attr('method');
+        var formData = $(this).serializeArray();
+        console.log(formData);
         showProgress();
             $.ajax({
             type: method,
+            enctype: "multipart/form-data",
             url: url,
-            data: $(this).serialize(),
+            data: formData,
             crossDomain: true,
             success: function(data, textStatus, jqXHR){
                 hideProgress();
                 showResult(data);
             }
             });
-        });
+        });*/
 });

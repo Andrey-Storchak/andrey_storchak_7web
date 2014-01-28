@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
     <div class="jumbotron">
-    <form action="" method="post" id="add-note" enctype="multipart/form-data">
+    <form enctype="multipart/form-data" action="" method="post" id="add-note">
         {% csrf_token %}
         <div class="form-group {% if form.attach.errors %} has-error {% endif %}">
             {{ form.attach.label.tag}}
