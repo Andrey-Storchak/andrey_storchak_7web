@@ -2,8 +2,8 @@ from django.shortcuts import redirect
 from django.views.generic import TemplateView, FormView
 from django.core.urlresolvers import reverse_lazy
 
-from . import models
-from . import forms
+from apps.pynote import models
+from apps.pynote import forms
 
 
 class HomeView(TemplateView):

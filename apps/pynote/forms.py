@@ -1,8 +1,8 @@
 from django import forms
 from django.forms.util import ErrorList
 
-from . import models
-from . import form_fields
+from apps.pynote import models
+from apps.pynote import form_fields
 
 
 class NoteForm(forms.ModelForm):
