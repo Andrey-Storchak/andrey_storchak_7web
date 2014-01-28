@@ -61,6 +61,7 @@ $(document).ready(function() {
             type: method,
             url: url,
             data: $(this).serialize(),
+            crossDomain: true,
             success: function(data, textStatus, jqXHR){
                 hideProgress();
                 showResult(data);

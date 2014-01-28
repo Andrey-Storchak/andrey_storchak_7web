@@ -13,7 +13,10 @@ def render_to_json_response(context, **response_kwargs):
         **response_kwargs)
 
 def convert_context_to_json(context):
-    ''' Converts context to json with ugly error handling'''
+    '''
+    Converts context to json with ugly error handling
+    what can be used only for debug :(
+    '''
 
     try:
         return json.dumps(context)

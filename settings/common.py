@@ -21,6 +21,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'apps.pynote',
 )
 
@@ -31,6 +32,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -44,6 +46,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "apps.pynote.context_processors.notes_count"
     )
 
+CORS_ORIGIN_REGEX_WHITELIST = ('/^http(s)?\:\/\/(?!localhost[:\/])[^\.\/]+(\/.*)*$/')
 ROOT_URLCONF = 'andrey_storchak_test_7web.urls'
 
 WSGI_APPLICATION = 'andrey_storchak_test_7web.wsgi.application'
