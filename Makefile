@@ -10,6 +10,7 @@ MANAGE=$(BASE)/manage.py
 init:
 	pip install -r requirements/dev.txt
 	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) syncdb --noinput
+	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) migrate
 	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) loaddata db_data.json
 manage:
 	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) $(COMMAND)
@@ -23,3 +24,12 @@ runheroku:
 	DJANGO_SETTINGS_MODULE=$(SETTINGS_HEROKU) $(MANAGE) syncdb --noinput
 	DJANGO_SETTINGS_MODULE=$(SETTINGS_HEROKU) $(MANAGE) loaddata db_data.json
 	DJANGO_SETTINGS_MODULE=$(SETTINGS_HEROKU) $(MANAGE) runserver 0.0.0.0:$(PORT)
+
+migrate:
+	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) migrate
+
+schemamigrate:
+	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) schemamigration $(ARGS)
+
+syncdb:
+	DJANGO_SETTINGS_MODULE=$(SETTINGS_LOCAL) $(MANAGE) syncdb --noinput

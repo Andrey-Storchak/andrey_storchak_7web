@@ -1,2 +1,4 @@
 Django==1.6.1
 django-cors-headers==0.12
+South==0.8.4
+Pillow==2.3.0
