@@ -63,7 +63,6 @@ $(document).ready(function() {
         var url = $(this).attr('action');
         var method = $(this).attr('method');
         var formData = $(this).serializeArray();
-        console.log(formData);
         showProgress();
             $.ajax({
             type: method,

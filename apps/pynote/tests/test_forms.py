@@ -36,6 +36,19 @@ class TestAdditionForm(TestCase):
         self.assertIn('request_result', response.content)
         self.assertIn('Error occured.', response.content)
 
+    def test_add_img(self):
+        with open('testdata/test.jpg', 'r') as attach:
+            v_data = self.v_note_creds.copy()
+            v_data['attach'] = attach
+            response = self.client.post(reverse('add_note'),
+                                        v_data,
+                                        HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+            self.assertContains(response, 'success')
+
+            response = self.client.get(reverse('home'))
+            filename = attach.name.split('/')[1]
+            self.assertIn(filename, response.content)
+
 
 class TestUpperCharField(TestCase):
 
