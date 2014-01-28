@@ -1,4 +1,4 @@
-from pynote.models import Note
+from apps.pynote.models import Note
 
 
 def notes_count(request):
