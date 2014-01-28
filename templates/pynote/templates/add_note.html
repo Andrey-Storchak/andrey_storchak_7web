@@ -6,17 +6,29 @@
         {% csrf_token %}
 
         <div class="form-group {% if form.title.errors %} has-error {% endif %}">
-
             {{ form.title.label_tag}}
             <br>{{ form.title.errors }}
+            <div class="alert" style="display: none">
+            </div>
             {{ form.title }}
         </div>
 
         <div class="form-group {% if form.text.errors %} has-error {% endif %}">
             {{ form.text.label_tag }}
             <br>{{ form.text.errors }}
+            <div class="alert" style="display: none">
+            </div>
             {{ form.text }}
         </div>
+
+        <div class="progress progress-striped active" style="display: none">
+            <div class="progress-bar" role="progressbar" aria-valuenow="15" aria-valuemin='15' aria-valuemax='15' style="width: 100%;" >
+            </div>
+        </div>
+
+        <div class="alert" style="display: none">
+        </div>
+
         <button type="submit" class="btn btn-default">Create!</button>
     </form>
     </div>
