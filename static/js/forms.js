@@ -22,15 +22,12 @@ $(document).ready(function() {
 
             for (var err_key in responseText['form_errors']) {
                 //get error handlers
-
-                var $err_input = $("input[name=" + err_key +"]");
                 var $err_label = $("#alert-" + err_key);
 
                 //add errors
                 $err_label.addClass("alert-danger")
                 .css({"display": "true",})
                 $err_label.text(responseText['form_errors'][err_key]);
-                $err_input.addClass('has-error');
             }
         }
         else {
