@@ -1,6 +1,15 @@
 
 $(document).ready(function() {
 
+
+    function changeWidgetSource() {
+        var $widget_src = $("#widget-source");
+        var ref = $widget_src.val();
+        $widget_src.val("<script type='text/javascript' src='" + window.location + ref);
+    };
+
+    changeWidgetSource();
+
     function showResult(responseText){
         //Show result of posted request
 

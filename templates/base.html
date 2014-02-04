@@ -26,10 +26,30 @@
             <li><a href="{% url 'home' %}">Notes
                 <span class="badge">{{ notes_count }}</span></a></li>
             <li><a href="{% url 'add_note' %}">Add note</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#get-widget">Get html wiget</a></li>
           </ul>
         </div>
       </div>
     </div>
     {% block content %}{% endblock %}
+    <div class="modal fade" id="get-widget" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">HTML Widget</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label class="form-control" for="wiget-code">Copy code bellow and paste it on your site.</label>
+            <input id="widget-source" class="form-control" type="text" value="{% url 'widget' %}'>">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     </body>
 </html>
