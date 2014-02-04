@@ -1,5 +1,7 @@
+import random
+
 from django.shortcuts import redirect, render
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, View
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext as _
 from django.template import Context
@@ -41,3 +43,13 @@ class AddNoteView(FormView):
         context['form_errors'] = form.errors
         return render_to_json_response(context)
 
+class WidgetView(TemplateView):
+    '''Widget view'''
+
+    template_name = "pynote/templates/widget.html"
+
+    def get_context_data(self, **kwargs):
+        '''Get random note to context for widget'''
+        context = super(WidgetView, self).get_context_data(**kwargs)
+        context['note'] = random.choice(models.Note.objects.all())
+        return context
