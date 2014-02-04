@@ -34,6 +34,9 @@ $(document).ready(function() {
             $result_field.addClass('alert-success')
             .text(responseText['message'])
             .css({'display':'true'});
+            setTimeout(function() {
+                window.location.href = "/notes";
+                }, 1000);
             };
         };
 

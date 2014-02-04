@@ -1,3 +1,5 @@
+import os
+
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 
@@ -18,7 +20,7 @@ class TestAdditionForm(TestCase):
                                     self.v_note_creds,
                                     HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 
-        created_note = models.Note.objects.get(pk=1)
+        created_note = models.Note.objects.latest('id')
         self.assertEqual(created_note.title,
                          self.v_note_creds['title'].upper())
         self.assertEqual(created_note.text,
@@ -32,7 +34,7 @@ class TestAdditionForm(TestCase):
                                     HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(response.status_code, 200)
         with self.assertRaises(models.Note.DoesNotExist):
-            models.Note.objects.get(pk=1)
+            models.Note.objects.latest('id')
         self.assertIn('request_result', response.content)
         self.assertIn('Error occured.', response.content)
 
@@ -48,6 +50,8 @@ class TestAdditionForm(TestCase):
             response = self.client.get(reverse('home'))
             filename = attach.name.split('/')[1]
             self.assertIn(filename, response.content)
+            os.remove('media/user_uploads/%s' % filename)
+
 
 
 class TestUpperCharField(TestCase):
