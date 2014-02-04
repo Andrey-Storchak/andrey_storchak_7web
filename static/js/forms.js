@@ -5,7 +5,7 @@ $(document).ready(function() {
     function changeWidgetSource() {
         var $widget_src = $("#widget-source");
         var ref = $widget_src.val();
-        $widget_src.val("<script type='text/javascript' src='" + window.location + ref);
+        $widget_src.val("<script type='text/javascript' src='http://" + window.location.host + ref);
     };
 
     changeWidgetSource();
