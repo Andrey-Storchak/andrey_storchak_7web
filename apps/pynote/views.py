@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView, FormView
 from django.core.urlresolvers import reverse_lazy
+from django.utils.translation import ugettext
 from django.template import Context
 
 
@@ -30,13 +31,13 @@ class AddNoteView(FormView):
 
     def form_valid(self, form):
         form.save()
-        context = {'request_result': 'success',
-                   'message': 'Note added successfuly.'}
+        context = {'request_result': ugettext('success'),
+                   'message': ugettext('Note added successfuly.')}
         return render_to_json_response(context)
 
     def form_invalid(self, form):
-        context = {'request_result': 'error',
-                  'message': 'Error occured.'}
+        context = {'request_result': ugettext('error'),
+                  'message': ugettext('Error occured.')}
         context['form_errors'] = form.errors
         return render_to_json_response(context)
 
