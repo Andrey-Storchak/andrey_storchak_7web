@@ -1,4 +1,5 @@
 import os
+import json
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
@@ -35,8 +36,9 @@ class TestAdditionForm(TestCase):
         self.assertEqual(response.status_code, 200)
         with self.assertRaises(models.Note.DoesNotExist):
             models.Note.objects.latest('id')
-        self.assertIn('request_result', response.content)
-        self.assertIn('Error occured.', response.content)
+
+        json_response = json.loads(response.content)
+        self.assertEqual(json_response['request_result'], 'error')
 
     def test_add_img(self):
         with open('testdata/test.jpg', 'r') as attach:
@@ -45,7 +47,9 @@ class TestAdditionForm(TestCase):
             response = self.client.post(reverse('add_note'),
                                         v_data,
                                         HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-            self.assertContains(response, 'success')
+
+            json_response = json.loads(response.content)
+            self.assertEqual(json_response['request_result'], 'success')
 
             response = self.client.get(reverse('home'))
             filename = attach.name.split('/')[1]
