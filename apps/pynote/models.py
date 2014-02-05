@@ -40,5 +40,6 @@ class Book(models.Model):
 
 @receiver(signals.pre_delete, sender=Note)
 def note_predelete_handler(sender, **kwargs):
-    for book in sender.book_set.all():
-        print(book)
+    for book in kwargs['instance'].book_set.all():
+        if book.notes.count() == 1:
+            book.delete()
