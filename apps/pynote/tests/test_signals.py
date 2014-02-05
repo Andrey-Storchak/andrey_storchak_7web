@@ -11,7 +11,7 @@ class TestBookModel(TestCase):
         self.created_book.notes.add(self.created_note)
 
     def test_last_deletion(self):
-        self.created_note.objects.delete()
+        self.created_note.delete()
         with self.assertRaises(models.Book.DoesNotExist):
             models.Book.objects.get()
 

@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import signals
+from django.dispatch import receiver
 
 
 class Note(models.Model):
@@ -21,7 +23,7 @@ class Book(models.Model):
     '''Model to store notes'''
 
     book_name = models.CharField(max_length=255,
-                                                          verbose_name=u"Book")
+                                                          verbose_name=u"Book name")
     notes = models.ManyToManyField(Note)
 
 
@@ -29,3 +31,14 @@ class Book(models.Model):
         '''Unicode representation of Book object'''
 
         return unicode(self.book_name)
+
+
+
+#-------------------------------------------------------------------------------------#
+#                           Signals processors                                         #
+#-------------------------------------------------------------------------------------#
+
+@receiver(signals.pre_delete, sender=Note)
+def note_predelete_handler(sender, **kwargs):
+    for book in sender.book_set.all():
+        print(book)
