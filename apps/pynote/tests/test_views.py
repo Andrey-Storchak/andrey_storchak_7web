@@ -15,3 +15,13 @@ class TestHomeView(TestCase):
         for note in self.notes:
             self.assertIn(note.title, home_page.content)
             self.assertIn(note.text, home_page.content)
+
+class TestWidgetView(TestCase):
+
+    def setUp(self):
+        self.created_note = models.Note.objects.create(title="TEST", text="TEST TEXT")
+
+    def test_widget(self):
+        response = self.client.get(reverse('widget'))
+        self.assertIn(self.created_note.title, response.content)
+        self.assertIn(self.created_note.text, response.content)
