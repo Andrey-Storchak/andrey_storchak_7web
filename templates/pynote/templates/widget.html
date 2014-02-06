@@ -5,13 +5,15 @@ document.write(
 </div>\
 <div class=\"note-text\">\
 <p>{{ note.text }}</p>\
+{% if note.attach %}
+    <div class=\"note-attachment\">\
+        <img src=\"http://{{ server_addr}}{{ MEDIA_URL }}{{ note.attach }}\">\
+    </div>\
+{% endif %}
 </div>\
 </div>\
 <style type=\"text/css\">\
     .widget-body {\
-        float: right;\
-        max-width: 60%;\
-        max-height: 60%;\
         overflow: auto;\
         background-color: #27ae60;\
         color: #ecf0f1;\
@@ -27,5 +29,10 @@ document.write(
     .note-text {\
         background-color: #2c3e50;\
         overflow: auto;\
+        width: 90%;\
+        border:  3px;
+    }\
+    .note-attachment {\
+        max-width: 30%;\
     }\
 </style>")
