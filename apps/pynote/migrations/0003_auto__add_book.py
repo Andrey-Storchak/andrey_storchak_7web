@@ -15,17 +15,30 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'pynote', ['Book'])
 
+        # Adding M2M table for field notes on 'Book'
+        m2m_table_name = db.shorten_name(u'pynote_book_notes')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('book', models.ForeignKey(orm[u'pynote.book'], null=False)),
+            ('note', models.ForeignKey(orm[u'pynote.note'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['book_id', 'note_id'])
+
 
     def backwards(self, orm):
         # Deleting model 'Book'
         db.delete_table(u'pynote_book')
+
+        # Removing M2M table for field notes on 'Book'
+        db.delete_table(db.shorten_name(u'pynote_book_notes'))
 
 
     models = {
         u'pynote.book': {
             'Meta': {'object_name': 'Book'},
             'book_name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'notes': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['pynote.Note']", 'symmetrical': 'False'})
         },
         u'pynote.note': {
             'Meta': {'object_name': 'Note'},

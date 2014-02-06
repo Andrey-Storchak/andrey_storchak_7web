@@ -9,8 +9,12 @@ class NoteAdmin(admin.ModelAdmin):
     form = forms.NoteForm
 
 
+class NoteInline(admin.TabularInline):
+    model = Book.notes.through
+
 class BookAdmin(admin.ModelAdmin):
-    pass
+    inlines = [ NoteInline, ]
+    fields = ['book_name']
 
 
 admin.site.register(Note, NoteAdmin)
