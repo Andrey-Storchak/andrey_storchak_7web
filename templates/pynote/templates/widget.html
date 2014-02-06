@@ -5,11 +5,6 @@ document.write(
 </div>\
 <div class=\"note-text\">\
 <p>{{ note.text }}</p>\
-{% if note.attach %}\
-    <div class=\"note-attachment\">\
-        <img src=\"http://{{ server_addr}}{{ MEDIA_URL }}{{ note.attach }}\">\
-    </div>\
-{% endif %}\
 </div>\
 </div>\
 <style type=\"text/css\">\
