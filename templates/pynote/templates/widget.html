@@ -4,7 +4,9 @@ document.write(
 <p>{{ note.title }}</p>\
 </div>\
 <div class=\"note-text\">\
+<div class=\"text\">\
 <p>{{ note.text }}</p>\
+</div>\
 {% if note.attach %}\
     <div class=\"note-attachment\">\
         <img src=\"http://{{ server_addr}}{{ MEDIA_URL }}{{ note.attach }}\">\
