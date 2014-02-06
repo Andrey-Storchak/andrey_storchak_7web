@@ -9,7 +9,7 @@ document.write(
 </div>\
 {% if note.attach %}\
     <div class=\"note-attachment\">\
-        <img src=\"http://{{ server_addr}}{{ MEDIA_URL }}{{ note.attach }}\">\
+        <img src=\"http://{{ server_addr}}{{ MEDIA_URL }}{{ note.attach }}\" class=\"note-image\">\
     </div>\
 {% endif %}\
 </div>\
@@ -42,5 +42,9 @@ document.write(
         width: 90%;\
         text-align: left;\
         text-indent: 1em;\
+        margin-left: 3px;\
+        }\
+    .note-image {\
+            max-width: 50%;\
         }\
 </style>")
