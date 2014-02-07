@@ -5,12 +5,17 @@ from apps.pynote.models import Book
 from apps.pynote import forms
 
 
+class MemberShipInline(admin.TabularInline):
+    model = Book.notes.through
+
+
 class NoteAdmin(admin.ModelAdmin):
-    form = forms.NoteForm
+    inlines = [ MemberShipInline, ]
 
 
 class BookAdmin(admin.ModelAdmin):
-    pass
+    inlines = [ MemberShipInline, ]
+    exclude = ('notes', )
 
 
 admin.site.register(Note, NoteAdmin)
